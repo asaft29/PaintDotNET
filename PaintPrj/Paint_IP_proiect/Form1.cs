@@ -31,11 +31,12 @@ namespace Paint_IP_proiect
     //ceau
     */
 
-    
-    public partial class Form1: Form
+
+    public partial class Form1 : Form
     {
         private ToolManager _toolManager;
-       
+        private bool _isDrawing = false;
+
         private Graphics _canvasGraphics;
         private Color _currentColor = Color.Black;
         private int _currentPenSize = 3;
@@ -49,16 +50,16 @@ namespace Paint_IP_proiect
 
             pictureBoxCanvas.Image = new Bitmap(pictureBoxCanvas.Width, pictureBoxCanvas.Height);
 
-           
+
             _canvasGraphics = Graphics.FromImage(pictureBoxCanvas.Image);
             _canvasGraphics.Clear(Color.White);
-            
+
 
             _toolManager = new ToolManager();
 
             _toolManager.SetTool(new PencilTool(_currentColor, _currentPenSize));
 
-            
+
             _originator = new Originator();
             _caretaker = new Caretaker(_originator);
 
@@ -82,7 +83,7 @@ namespace Paint_IP_proiect
                 {
                     ImageIO.ImageIO.Save(pictureBoxCanvas.Image);
                 }
-                catch(ImageIOException)
+                catch (ImageIOException)
                 {
                     //nimic, nu avem ce salva
                 }
@@ -94,7 +95,7 @@ namespace Paint_IP_proiect
             _canvasGraphics = Graphics.FromImage(pictureBoxCanvas.Image);
             _canvasGraphics.Clear(Color.White);
 
-             _originator.Image = (Bitmap)pictureBoxCanvas.Image;
+            _originator.Image = (Bitmap)pictureBoxCanvas.Image;
             _caretaker.Save();
         }
 
@@ -102,7 +103,7 @@ namespace Paint_IP_proiect
         //To be tested
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
             DialogResult result = MessageBox.Show("Dorești să salvezi imaginea?", "Salvare", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -117,12 +118,13 @@ namespace Paint_IP_proiect
                 }
 
             }
+
             try
             {
                 pictureBoxCanvas.Image = ImageIO.ImageIO.Load(pictureBoxCanvas.Width, pictureBoxCanvas.Height);
                 _canvasGraphics = Graphics.FromImage(pictureBoxCanvas.Image);
             }
-            catch(ImageIOException)
+            catch (ImageIOException)
             {
                 pictureBoxCanvas.Image = new Bitmap(pictureBoxCanvas.Width, pictureBoxCanvas.Height);
                 _canvasGraphics = Graphics.FromImage(pictureBoxCanvas.Image);
@@ -135,7 +137,7 @@ namespace Paint_IP_proiect
                 _originator.Image = (Bitmap)pictureBoxCanvas.Image;
                 _caretaker.Save();
             }
-            
+
 
 
         }
@@ -154,17 +156,20 @@ namespace Paint_IP_proiect
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-                _caretaker.Undo();
-                pictureBoxCanvas.Image = _originator.Image;
 
-                _canvasGraphics = Graphics.FromImage(pictureBoxCanvas.Image);
-                pictureBoxCanvas.Invalidate();
-            
-        }
+            _caretaker.Undo();
+            _canvasGraphics?.Dispose();
 
-        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            pictureBoxCanvas.Image?.Dispose();
+
+            pictureBoxCanvas.Image = new Bitmap(_originator.Image);
+
+            _canvasGraphics = Graphics.FromImage(pictureBoxCanvas.Image);
+
+            _isDrawing = false;
+
+            pictureBoxCanvas.Invalidate();
+
 
         }
 
@@ -197,7 +202,7 @@ namespace Paint_IP_proiect
         //culoare custom
         private void buttonCuloareCustom_Click(object sender, EventArgs e)
         {
-            if(colorDialog1.ShowDialog() == DialogResult.OK)
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Color color = colorDialog1.Color;
                 buttonCuloareCustom.BackColor = color;
@@ -209,7 +214,7 @@ namespace Paint_IP_proiect
             _currentColor = Color.Black;
             UpdateToolColor();
         }
-        
+
         private void buttonCuloareGriInchis_Click(object sender, EventArgs e)
         {
             _currentColor = Color.DarkGray;
@@ -242,13 +247,13 @@ namespace Paint_IP_proiect
 
         private void buttonCuloareNavy_Click(object sender, EventArgs e)
         {
-            _currentColor= Color.Navy;
+            _currentColor = Color.Navy;
             UpdateToolColor();
         }
 
         private void buttonCuloarePurple_Click(object sender, EventArgs e)
         {
-            _currentColor=Color.Purple;
+            _currentColor = Color.Purple;
             UpdateToolColor();
         }
 
@@ -316,7 +321,7 @@ namespace Paint_IP_proiect
 
         private void buttonCuloareCyan_Click(object sender, EventArgs e)
         {
-            _currentColor= Color.Cyan;
+            _currentColor = Color.Cyan;
             UpdateToolColor();
         }
 
@@ -414,6 +419,8 @@ namespace Paint_IP_proiect
 
         private void pictureBoxCanvas_MouseDown(object sender, MouseEventArgs e)
         {
+            _caretaker.Save();
+            _isDrawing = true;
             _toolManager.MouseDown(e.Location);
             pictureBoxCanvas.Invalidate();
         }
@@ -433,11 +440,11 @@ namespace Paint_IP_proiect
             _toolManager.ApplyToBitmap((Bitmap)pictureBoxCanvas.Image);
 
 
-            //_originator.Image = (Bitmap)pictureBoxCanvas.Image;
-            _caretaker.Save();
+            _originator.Image = new Bitmap((Bitmap)pictureBoxCanvas.Image);
+            _isDrawing = false;
             pictureBoxCanvas.Invalidate();
 
-           
+
         }
 
         private void pictureBoxCanvas_Paint(object sender, PaintEventArgs e)
@@ -446,7 +453,10 @@ namespace Paint_IP_proiect
             {
                 e.Graphics.DrawImage(pictureBoxCanvas.Image, Point.Empty);
             }
-            _toolManager.Draw(e.Graphics);
+            if (_isDrawing)
+            {
+                _toolManager.Draw(e.Graphics);
+            }
         }
 
         //ramasisuri pe care daca le scot crapa si le-am generat din greseala
