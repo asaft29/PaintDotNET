@@ -1,0 +1,6 @@
+C:\Users\Alex\Desktop\IP\ImageIO\ImageIO\bin\Debug\ImageIO.dll
+C:\Users\Alex\Desktop\IP\ImageIO\ImageIO\bin\Debug\ImageIO.pdb
+C:\Users\Alex\Desktop\IP\ImageIO\ImageIO\obj\Debug\ImageIO.csproj.AssemblyReference.cache
+C:\Users\Alex\Desktop\IP\ImageIO\ImageIO\obj\Debug\ImageIO.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Desktop\IP\ImageIO\ImageIO\obj\Debug\ImageIO.dll
+C:\Users\Alex\Desktop\IP\ImageIO\ImageIO\obj\Debug\ImageIO.pdb
