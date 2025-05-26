@@ -41,7 +41,7 @@ namespace Paint_IP_proiect
         private int _currentPenSize = 3;
 
         private Caretaker _caretaker;
-        private ImageOriginator _originator;
+        private Originator _originator;
 
         public Form1()
         {
@@ -58,11 +58,12 @@ namespace Paint_IP_proiect
 
             _toolManager.SetTool(new PencilTool(_currentColor, _currentPenSize));
 
-            _caretaker = new Caretaker();
-            _originator = new ImageOriginator();
+            
+            _originator = new Originator();
+            _caretaker = new Caretaker(_originator);
 
-            _originator.Image = (Bitmap)pictureBoxCanvas.Image.Clone();
-            _caretaker.SaveState(_originator);
+            _originator.Image = (Bitmap)pictureBoxCanvas.Image;
+            _caretaker.Save();
         }
 
         //butoane menustrip de sus
@@ -93,8 +94,8 @@ namespace Paint_IP_proiect
             _canvasGraphics = Graphics.FromImage(pictureBoxCanvas.Image);
             _canvasGraphics.Clear(Color.White);
 
-            _originator.Image = (Bitmap)pictureBoxCanvas.Image.Clone();
-            _caretaker.SaveState(_originator);
+             _originator.Image = (Bitmap)pictureBoxCanvas.Image;
+            _caretaker.Save();
         }
 
         //Butonul File->Open
@@ -131,8 +132,8 @@ namespace Paint_IP_proiect
             {
                 pictureBoxCanvas.Invalidate();
 
-                _originator.Image = (Bitmap)pictureBoxCanvas.Image.Clone();
-                _caretaker.SaveState(_originator);
+                _originator.Image = (Bitmap)pictureBoxCanvas.Image;
+                _caretaker.Save();
             }
             
 
@@ -153,13 +154,13 @@ namespace Paint_IP_proiect
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_caretaker.CanUndo)
-            {
-                _caretaker.Undo(_originator);
-                pictureBoxCanvas.Image = (Image)_originator.Image.Clone();
+            
+                _caretaker.Undo();
+                pictureBoxCanvas.Image = _originator.Image;
+
                 _canvasGraphics = Graphics.FromImage(pictureBoxCanvas.Image);
                 pictureBoxCanvas.Invalidate();
-            }
+            
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -430,8 +431,10 @@ namespace Paint_IP_proiect
         {
             _toolManager.MouseUp(e.Location);
             _toolManager.ApplyToBitmap((Bitmap)pictureBoxCanvas.Image);
-            _originator.Image = (Bitmap)pictureBoxCanvas.Image.Clone();
-            _caretaker.SaveState(_originator);
+
+
+            //_originator.Image = (Bitmap)pictureBoxCanvas.Image;
+            _caretaker.Save();
             pictureBoxCanvas.Invalidate();
 
            
