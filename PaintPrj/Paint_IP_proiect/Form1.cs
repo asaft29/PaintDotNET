@@ -259,27 +259,32 @@ namespace Paint_IP_proiect
 
         private void buttonCuloareR192G192B0_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentColor = Color.FromArgb(192, 192, 0); 
+            UpdateToolColor();
         }
 
         private void buttonCuloareR0G64B64_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentColor = Color.FromArgb(0, 64, 64); 
+            UpdateToolColor();
         }
 
         private void buttonCuloareR128G128B255_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentColor = Color.FromArgb(128, 128, 255); 
+            UpdateToolColor();
         }
 
         private void buttonCuloareR0G0B192_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentColor = Color.FromArgb(0, 0, 192); 
+            UpdateToolColor();
         }
 
         private void buttonCuloareR192G192B255_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentColor = Color.FromArgb(192, 192, 255); 
+            UpdateToolColor();
         }
 
         private void buttonCuloareMaro_Click(object sender, EventArgs e)
@@ -339,17 +344,20 @@ namespace Paint_IP_proiect
 
         private void buttonCuloareR25G255B128_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentColor = Color.FromArgb(25, 255, 128); 
+            UpdateToolColor();
         }
 
         private void buttonCuloareR128G255B128_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentColor = Color.FromArgb(128, 255, 128); 
+            UpdateToolColor();
         }
 
         private void buttonCuloareR192G255B255_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _currentColor = Color.FromArgb(192, 255, 255); 
+            UpdateToolColor();
         }
 
         private void buttonCuloareMediumSlateBlue_Click(object sender, EventArgs e)
