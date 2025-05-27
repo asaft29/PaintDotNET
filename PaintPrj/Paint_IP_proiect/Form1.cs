@@ -47,7 +47,7 @@ namespace Paint_IP_proiect
         public Form1()
         {
             InitializeComponent();
-
+            this.Text = "Paintdotnet";
             pictureBoxCanvas.Image = new Bitmap(pictureBoxCanvas.Width, pictureBoxCanvas.Height);
 
 
