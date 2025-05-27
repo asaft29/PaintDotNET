@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -177,7 +178,30 @@ namespace Paint_IP_proiect
 
         private void butonHelp_Click(object sender, EventArgs e)
         {
-            Process.Start("Paintdotnet.chm");
+            string helpFilePath = Path.Combine(Application.StartupPath, "Paintdotnet.chm");
+
+            if (File.Exists(helpFilePath))
+            {
+                try
+                {
+                    var psi = new ProcessStartInfo
+                    {
+                        FileName = "hh.exe",
+                        Arguments = "\"" + helpFilePath + "\"",
+                        UseShellExecute = true
+                    };
+
+                    Process.Start(psi);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Unable to open the help file.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Help file not found:\n" + helpFilePath, "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void butonExit_Click(object sender, EventArgs e)
