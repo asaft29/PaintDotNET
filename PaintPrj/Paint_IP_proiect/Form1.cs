@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -176,7 +177,7 @@ namespace Paint_IP_proiect
 
         private void butonHelp_Click(object sender, EventArgs e)
         {
-
+            Process.Start("Paintdotnet.chm");
         }
 
         private void butonExit_Click(object sender, EventArgs e)
