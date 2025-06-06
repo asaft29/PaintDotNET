@@ -462,6 +462,11 @@ namespace Paint_IP_proiect
         {
             _caretaker.Save();
             _isDrawing = true;
+            if (_toolManager.CurrentTool is FillTool fillTool)
+            {
+                fillTool.SetTargetBitmap((Bitmap)pictureBoxCanvas.Image);
+            }
+    
             _toolManager.MouseDown(e.Location);
             pictureBoxCanvas.Invalidate();
         }

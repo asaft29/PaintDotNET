@@ -48,8 +48,20 @@ namespace PaintTools
         public void OnMouseDown(Point location)
         {
             if (_bitmap == null) return;
+            
+            try
+            {
+                if (location.X < 0 || location.X >= _bitmap.Width ||
+                    location.Y < 0 || location.Y >= _bitmap.Height)
+                    return;
 
-            _targetColor = _bitmap.GetPixel(location.X, location.Y);
+                _targetColor = _bitmap.GetPixel(location.X, location.Y);
+            }
+            catch (ArgumentException)
+            {
+                return;
+            }
+
             if (_targetColor.ToArgb() == _replacementColor.ToArgb()) return;
 
             FloodFill(location.X, location.Y);

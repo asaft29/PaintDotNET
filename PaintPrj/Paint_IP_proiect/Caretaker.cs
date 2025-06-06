@@ -48,7 +48,8 @@ namespace Paint_IP_proiect
     {
         private Stack<Originator.Memento> _history;
         private Originator _originator;
-
+        private const int MaxHistory = 20;
+        
         public Originator Originator
         {
             get => _originator;
@@ -61,10 +62,17 @@ namespace Paint_IP_proiect
             _history = new Stack<Originator.Memento>();
         }
 
+        
+
         public void Save()
         {
+            if (_history.Count >= MaxHistory)
+            {
+                _history = new Stack<Originator.Memento>(_history.Reverse().Skip(1)); 
+            }
             _history.Push(_originator.Save());
         }
+
 
 
         public void Undo()

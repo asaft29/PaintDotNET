@@ -50,3 +50,4 @@ D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proi
 D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.csproj.GenerateResource.cache
 D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.csproj.CoreCompileInputs.cache
 D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP.62DAAA5E.Up2Date
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.exe.config
