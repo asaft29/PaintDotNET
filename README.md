@@ -65,9 +65,9 @@ We made sure the drawing feels smooth and responsive. When you move your mouse, 
 - **Color Picker**: 28 pre-made colors plus a fancy color chooser
 
 <div style="display: flex; justify-content: center; gap: 20px; margin: 100px 0;">
-  <img src="img/rust_logo.png" alt="Rust Logo" width="300">
-  <img src="img/fish.png" alt="Fish" width="300">
-  <img src="img/yoda.png" alt="Yoda" width="300">
+  <img src="img/rust_logo.png" alt="Rust Logo" width="250">
+  <img src="img/fish.png" alt="Fish" width="250">
+  <img src="img/yoda.png" alt="Yoda" width="250">
 </div>
 
 ### File Components
