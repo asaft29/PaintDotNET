@@ -37,3 +37,16 @@ D:\AC\AC-III\S2\IP\rider\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.cs
 D:\AC\AC-III\S2\IP\rider\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP.62DAAA5E.Up2Date
 D:\AC\AC-III\S2\IP\rider\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.exe
 D:\AC\AC-III\S2\IP\rider\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.pdb
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.exe
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.pdb
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\bin\Debug\Paint_IP_proiect.exe.config
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\bin\Debug\Paint_IP_proiect.exe
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\bin\Debug\Paint_IP_proiect.pdb
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\bin\Debug\ImageIO.dll
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\bin\Debug\PaintTools.dll
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.csproj.AssemblyReference.cache
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.Form1.resources
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.Properties.Resources.resources
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.csproj.GenerateResource.cache
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP_proiect.csproj.CoreCompileInputs.cache
+D:\AC\AC-III\S2\IP\Paintdotnet\PaintPrj\Paint_IP_proiect\obj\Debug\Paint_IP.62DAAA5E.Up2Date

@@ -46,21 +46,27 @@ namespace Paint_IP_proiect
         private Caretaker _caretaker;
         private Originator _originator;
 
+        
         public Form1()
         {
             InitializeComponent();
             this.Text = "Paintdotnet";
             pictureBoxCanvas.Image = new Bitmap(pictureBoxCanvas.Width, pictureBoxCanvas.Height);
+            
 
-
+            
             _canvasGraphics = Graphics.FromImage(pictureBoxCanvas.Image);
             _canvasGraphics.Clear(Color.White);
 
+            this.MaximizeBox = false;
+            
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            
 
             _toolManager = new ToolManager();
 
             _toolManager.SetTool(new PencilTool(_currentColor, _currentPenSize));
-
+            
 
             _originator = new Originator();
             _caretaker = new Caretaker(_originator);
@@ -77,7 +83,7 @@ namespace Paint_IP_proiect
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            DialogResult result = MessageBox.Show("Dorești să salvezi imaginea?", "Salvare", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to save the image?", "Save", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -103,10 +109,10 @@ namespace Paint_IP_proiect
 
         //Butonul File->Open
         //To be tested
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)    
         {
 
-            DialogResult result = MessageBox.Show("Dorești să salvezi imaginea?", "Salvare", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to save the image?", "Save", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -206,7 +212,7 @@ namespace Paint_IP_proiect
 
         private void butonExit_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Dorești să salvezi imaginea?", "Salvare", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to save the image?", "Save", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -231,6 +237,8 @@ namespace Paint_IP_proiect
             {
                 Color color = colorDialog1.Color;
                 buttonCuloareCustom.BackColor = color;
+                _currentColor = color;
+                UpdateToolColor();
             }
         }
         //butoane culori, prima linie, in ordine (stanga-dreapta)
@@ -495,7 +503,7 @@ namespace Paint_IP_proiect
         //ramasisuri pe care daca le scot crapa si le-am generat din greseala
         private void groupBoxCulori_Enter(object sender, EventArgs e)
         {
-
+                         
         }
     }
 }
