@@ -1,6 +1,6 @@
 
 
-# PaintDotnet - A Minimalist Drawing App in *C#*
+# PaintDotNET - A Minimalist Drawing App in *C#*
 
 This is a drawing application we created during our time at university. Think of it as our own take on Microsoft Paint (but on a smaller scale), but with some cool programming concepts thrown in.
 
